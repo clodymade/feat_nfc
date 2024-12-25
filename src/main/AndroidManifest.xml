@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Permission required for using NFC -->
+    <uses-permission android:name="android.permission.NFC" />
+    <!-- Declares that the app uses NFC hardware -->
+    <uses-feature android:name="android.hardware.nfc" android:required="false" />
+    <!-- Permission to access NFC payment app priority information (Android 12 and above) -->
+    <uses-permission android:name="android.permission.NFC_PREFERRED_PAYMENT_INFO" />
+
+    <application>
+        <!-- Declaration of the NFC scanner activity -->
+        <activity
+            android:name=".view.HiNfcTagListActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+            <!-- Intent filter for NFC NDEF tags -->
+            <intent-filter>
+                <!-- Delivers an intent to the app when an NFC tag with an NDEF message is detected -->
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <!-- Specifies the MIME type of the NDEF message to handle (e.g., a specific application or text MIME type) -->
+                <data android:mimeType="application/vnd.ubpay.com" /> <!-- e.g., "text/plain" or "application/vnd.*" -->
+            </intent-filter>
+
+            <!-- Intent filter for NFC tags -->
+            <intent-filter>
+                <!-- Delivers an intent to the app when any NFC tag is detected (works even if the tag has no NDEF message) -->
+                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- Intent filter for NFC technology -->
+            <intent-filter>
+                <!-- Delivers an intent to the app when a tag with a supported NFC technology stack is detected -->
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <!-- Metadata for configuring NFC technology filters (references the nfc_tech_filter.xml file) -->
+            <meta-data
+                android:name="android.nfc.action.TECH_DISCOVERED"
+                android:resource="@xml/nfc_tech_filter" />
+        </activity>
+    </application>
+</manifest>
