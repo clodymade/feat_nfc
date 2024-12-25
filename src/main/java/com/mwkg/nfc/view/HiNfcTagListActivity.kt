@@ -50,30 +50,26 @@ class HiNfcTagListActivity : ComponentActivity() {
 
         // Start NFC scanning using HiNfcScanner
         HiNfcScanner.start(this) { result ->
-            try {
-                // Convert the scanned NFC data into a Map structure
-                val nfcMap = result.nfcData.hiToMapOrList() as? Map<String, Any> ?: emptyMap()
+            // Convert the scanned NFC data into a Map structure
+            val nfcMap = result.nfcData.hiToMapOrList() as? Map<String, Any> ?: emptyMap()
 
-                // Extract values from the NFC data map
-                val tag = HiNfcTag(
-                    uid = nfcMap["uid"] as? String ?: "",
-                    techList = nfcMap["techList"] as? String ?: "",
-                    ndef = nfcMap["Ndef"] as? Map<String, Any> ?: emptyMap(),
-                    ndefRecords = nfcMap["NdefRecords"] as? List<Map<String, Any>> ?: emptyList(),
-                    ndefMessages = nfcMap["NdefMessages"] as? List<List<Map<String, Any>>> ?: emptyList()
-                )
+            // Extract values from the NFC data map
+            val tag = HiNfcTag(
+                uid = nfcMap["uid"] as? String ?: "",
+                techList = nfcMap["techList"] as? String ?: "",
+                ndef = nfcMap["Ndef"] as? Map<String, Any> ?: emptyMap(),
+                ndefRecords = nfcMap["NdefRecords"] as? List<Map<String, Any>> ?: emptyList(),
+                ndefMessages = nfcMap["NdefMessages"] as? List<List<Map<String, Any>>> ?: emptyList()
+            )
 
-                // Update the ViewModel with the parsed tag data
-                viewModel.update(tag)
+            // Update the ViewModel with the parsed tag data
+            viewModel.update(tag)
 
-                // Log the tag data for debugging purposes
-                Log.d("ModularX", tag.toString())
+            // Log the tag data for debugging purposes
+            Log.d("ModularX", tag.toString())
 
-                // Optionally stop the scanner (commented out for continuous scanning)
-                // HiNfcScanner.stop()
-            } catch (e: Exception) {
-                Log.e("ModularX", "Error processing NFC result: ${e.message}", e)
-            }
+            // Optionally stop the scanner (commented out for continuous scanning)
+            // HiNfcScanner.stop()
         }
     }
 
