@@ -76,17 +76,13 @@ Start NFC scanning using HiNfcScanner:
 
 ```kotlin
 HiNfcScanner.start(this) { result ->
-    when (result) {
-        is HiResult.HiNfcResult -> {
-            println("NFC Tag Found:")
-            println("UID: ${result.nfcData["uid"]}")
-            println("Tech List: ${result.nfcData["techList"]}")
-            println("NDEF: ${result.nfcData["Ndef"]}")
-        }
-        else -> {
-            println("Error: ${result.error}")
-        }
-    }
+    val nfcMap = result.nfcData.hiToMapOrList() as? Map<String, Any> ?: emptyMap()
+    println("NFC Tag Found:")
+    println("UID: ${nfcMap["uid"]}")
+    println("Tech List: ${nfcMap["techList"]}")
+    println("NDEF: ${nfcMap["Ndef"]}")
+    println("NdefRecords: ${nfcMap["NdefRecords"]}")
+    println("NdefMessages: ${nfcMap["NdefMessages"]}")
 }
 ```
 
