@@ -24,9 +24,8 @@ import androidx.activity.viewModels
 import com.mwkg.nfc.model.HiNfcResult
 import com.mwkg.nfc.model.HiNfcTag
 import com.mwkg.nfc.util.HiNfcScanner
+import com.mwkg.nfc.util.HiToolkit.toMapOrList
 import com.mwkg.nfc.viewmodel.HiNfcTagListViewModel
-import com.mwkg.util.hiToMapOrList
-import com.mwkg.util.hiToPrettyJsonString
 
 /**
  * Activity for scanning NFC tags and displaying the results in a list.
@@ -51,7 +50,7 @@ class HiNfcTagListActivity : ComponentActivity() {
         // Start NFC scanning using HiNfcScanner
         HiNfcScanner.start(this) { result ->
             // Convert the scanned NFC data into a Map structure
-            val nfcMap = result.nfcData.hiToMapOrList() as? Map<String, Any> ?: emptyMap()
+            val nfcMap = result.nfcData.toMapOrList() as? Map<String, Any> ?: emptyMap()
 
             // Extract values from the NFC data map
             val tag = HiNfcTag(

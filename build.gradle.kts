@@ -46,8 +46,6 @@ android {
 }
 
 dependencies {
-    implementation("com.github.clodymade:feat_util:1.0.0")
-
     // AndroidX Core 및 Compose
     implementation(libs.androidx.core.ktx) // Core KTX
     implementation(libs.androidx.appcompat) // AppCompat
@@ -83,7 +81,7 @@ publishing {
             // Define Maven artifact metadata
             groupId = "com.github.clodymade"    // GitHub username as group ID
             artifactId = "feat_nfc"             // Module name as artifact ID
-            version = "1.0.0"                   // Version matching the Git tag
+            version = "1.0.1"                   // Version matching the Git tag
 
             // Configure POM metadata
             pom {

@@ -28,7 +28,7 @@ import android.nfc.tech.NfcBarcode
 import android.nfc.tech.NfcF
 import android.nfc.tech.NfcV
 import android.util.Log
-import com.mwkg.util.hiSanitizeToString
+import com.mwkg.nfc.util.HiToolkit.sanitizeToString
 import org.json.JSONArray
 import org.json.JSONObject
 
@@ -85,10 +85,10 @@ object HiNfcParser {
         val recordsJsonArray = JSONArray()
         for (record in ndefMessage.records) {
             val recordJson = JSONObject().apply {
-                put("tnf", record.tnf)                              // TNF (Type Name Format)
-                put("type", record.type.hiSanitizeToString())       // Record type
-                put("id", record.id?.hiSanitizeToString())          // Record ID
-                put("payload", record.payload.hiSanitizeToString()) // Record payload
+                put("tnf", record.tnf)                            // TNF (Type Name Format)
+                put("type", record.type.sanitizeToString())       // Record type
+                put("id", record.id?.sanitizeToString())          // Record ID
+                put("payload", record.payload.sanitizeToString()) // Record payload
             }
             recordsJsonArray.put(recordJson)
         }

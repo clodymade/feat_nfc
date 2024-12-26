@@ -20,7 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.mwkg.nfc.model.HiNfcTag
-import com.mwkg.util.hiToPrettyJsonString
+import com.mwkg.nfc.util.HiToolkit.toPrettyJsonString
 
 /**
  * Composable function to display an NFC tag's details in a card format.
@@ -39,9 +39,9 @@ fun HiNfcTagItem(tag: HiNfcTag) {
             // Display each NFC tag detail as a text component
             HiNfcTagDetailText(label = "UID", value = tag.uid)
             HiNfcTagDetailText(label = "Tech List", value = tag.techList)
-            HiNfcTagDetailText(label = "NDEF", value = tag.ndef.hiToPrettyJsonString())
-            HiNfcTagDetailText(label = "NDEF Records", value = tag.ndefRecords.hiToPrettyJsonString())
-            HiNfcTagDetailText(label = "NDEF Messages", value = tag.ndefMessages.hiToPrettyJsonString())
+            HiNfcTagDetailText(label = "NDEF", value = tag.ndef.toPrettyJsonString())
+            HiNfcTagDetailText(label = "NDEF Records", value = tag.ndefRecords.toPrettyJsonString())
+            HiNfcTagDetailText(label = "NDEF Messages", value = tag.ndefMessages.toPrettyJsonString())
         }
     }
 }
