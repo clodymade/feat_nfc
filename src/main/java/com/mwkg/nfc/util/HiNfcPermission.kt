@@ -46,7 +46,7 @@ internal object HiNfcPermission {
      * }
      * ```
      */
-    fun getMergedPermissions(vararg types: HiPermissionType): Array<String> {
+    fun getMergedPermissions(vararg types: HiNfcPermissionType): Array<String> {
         return types.flatMap { it.requiredPermissions().asList() }
             .distinct()
             .toTypedArray()
@@ -85,7 +85,7 @@ internal object HiNfcPermission {
  * Enum class defining different permission types.
  * Each type returns the required permissions associated with it.
  */
-internal enum class HiPermissionType {
+internal enum class HiNfcPermissionType {
     PUSH,       // Push notifications permission
     CAMERA,     // Camera permission
     STORAGE,    // Storage permission
@@ -158,7 +158,7 @@ internal enum class HiPermissionType {
  * Object containing request codes for different permission requests.
  * These codes are used when requesting permissions in the app.
  */
-internal object PermissionReqCodes {
+internal object HiNfcPermissionReqCodes {
     const val PUSH = 44440          // Push notification permission
     const val CAMERA = 44441        // Camera permission
     const val STORAGE = 44442       // Storage permission
