@@ -1,5 +1,5 @@
 /**
- * File: HiToolkit.kt
+ * File: HiNfcToolkit.kt
  *
  * Description: This utility module provides a set of extension functions for `Context` and other common utilities.
  *              It includes functions for loading and saving data using SharedPreferences, managing permissions,
@@ -23,7 +23,7 @@ import java.nio.charset.Charset
  * Utility class for context-related extensions and common operations.
  * Internal to the feat_ble module.
  */
-internal object HiToolkit {
+internal object HiNfcToolkit {
 
     /**
      * Loads a value from SharedPreferences.
@@ -38,7 +38,7 @@ internal object HiToolkit {
      * ```
      */
     internal fun Context.load(key: String, defaultValue: String = ""): String {
-        return HiPreferences.load(this, key, defaultValue)
+        return HiNfcPreferences.load(this, key, defaultValue)
     }
 
     /**
@@ -53,7 +53,7 @@ internal object HiToolkit {
      * ```
      */
     internal fun Context.save(key: String, value: String) {
-        HiPreferences.save(this, key, value)
+        HiNfcPreferences.save(this, key, value)
     }
 
     /**
@@ -68,7 +68,7 @@ internal object HiToolkit {
      * ```
      */
     internal fun Context.requestPermissions(permissions: Array<String>, requestCode: Int) {
-        HiPermission.requestPermissions(this, permissions, requestCode)
+        HiNfcPermission.requestPermissions(this, permissions, requestCode)
     }
 
     /**
@@ -83,7 +83,7 @@ internal object HiToolkit {
      * ```
      */
     internal fun Context.hasPermissions(permissions: Array<String>): Boolean {
-        return HiPermission.hasPermissions(this, permissions)
+        return HiNfcPermission.hasPermissions(this, permissions)
     }
 
     /**

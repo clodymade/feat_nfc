@@ -1,5 +1,5 @@
 /**
- * File: HiPermission.kt
+ * File: HiNfcPermission.kt
  *
  * Description: This class handles permission requests and checks for the app.
  *              It provides functions to merge multiple permission types, request permissions,
@@ -26,7 +26,7 @@ import androidx.core.content.ContextCompat
  * Handles permission requests and checks.
  * Provides utility functions to request and verify permissions for various tasks, including Bluetooth, Camera, Storage, etc.
  */
-internal object HiPermission {
+internal object HiNfcPermission {
 
     /**
      * Merges multiple permission types into a single list, removing duplicates.

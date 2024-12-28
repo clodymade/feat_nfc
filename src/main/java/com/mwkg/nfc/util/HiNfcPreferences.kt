@@ -1,5 +1,5 @@
 /**
- * File: HiPreferences.kt
+ * File: HiNfcPreferences.kt
  *
  * Description: This utility class manages the SharedPreferences for storing and retrieving data
  *              in a persistent storage across app sessions. It provides methods to save and load
@@ -19,7 +19,7 @@ import android.content.Context
  * Utility class for handling SharedPreferences operations, including saving and loading values.
  * It uses a predefined `HiPreferences` file name for storing the data.
  */
-internal object HiPreferences {
+internal object HiNfcPreferences {
 
     // The name of the SharedPreferences file used for storing data
     private const val PREFERENCES_NAME = "HiPreferences"

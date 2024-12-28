@@ -28,7 +28,7 @@ import android.nfc.tech.NfcBarcode
 import android.nfc.tech.NfcF
 import android.nfc.tech.NfcV
 import android.util.Log
-import com.mwkg.nfc.util.HiToolkit.sanitizeToString
+import com.mwkg.nfc.util.HiNfcToolkit.sanitizeToString
 import org.json.JSONArray
 import org.json.JSONObject
 

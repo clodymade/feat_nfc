@@ -21,10 +21,9 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import com.mwkg.nfc.model.HiNfcResult
 import com.mwkg.nfc.model.HiNfcTag
 import com.mwkg.nfc.util.HiNfcScanner
-import com.mwkg.nfc.util.HiToolkit.toMapOrList
+import com.mwkg.nfc.util.HiNfcToolkit.toMapOrList
 import com.mwkg.nfc.viewmodel.HiNfcTagListViewModel
 
 /**

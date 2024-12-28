@@ -20,7 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.mwkg.nfc.model.HiNfcTag
-import com.mwkg.nfc.util.HiToolkit.toPrettyJsonString
+import com.mwkg.nfc.util.HiNfcToolkit.toPrettyJsonString
 
 /**
  * Composable function to display an NFC tag's details in a card format.
