@@ -46,6 +46,10 @@ class HiNfcTagListActivity : ComponentActivity() {
             )
         }
 
+        startNfcScanner()
+    }
+
+    private fun startNfcScanner() {
         // Start NFC scanning using HiNfcScanner
         HiNfcScanner.start(this) { result ->
             // Convert the scanned NFC data into a Map structure

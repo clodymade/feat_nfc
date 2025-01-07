@@ -1,5 +1,5 @@
 /**
- * File: HiResult.kt
+ * File: HiNfcResult.kt
  *
  * Description: This sealed class defines various scan result types, including QR codes, NFC tags, BLE devices, Beacons, and OCR data.
  *              Each result class contains relevant details such as scanned data, error messages, and specific attributes.
